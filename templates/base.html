@@ -7,14 +7,32 @@
     <title>{% block title %}Logus Consultoria{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
+<script>
+    // Faz o conteúdo sumir antes de ir para a próxima página
+    document.querySelectorAll('nav a, .logo, .btn-cta').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (link.pathname === window.location.pathname) return;
+            document.body.classList.add('saindo');
+            setTimeout(function () { window.location.href = link.href; }, 300);
+        });
+    });
+
+    // Ao voltar pelo botão "voltar" do navegador, limpa o estado de saída
+    window.addEventListener('pageshow', function () {
+        document.body.classList.remove('saindo');
+    });
+</script>
+
 <body>
     <header class="navbar">
         <div class="container nav-content">
             <a href="{% url 'sobre' %}" class="logo">LOGUS<span>.</span></a>
             <nav>
                 <a href="{% url 'sobre' %}">Sobre</a>
-                <a href="{% url 'sr1' %}">Serviço 1</a>
-                <a href="{% url 'sr2' %}">Serviço 2</a>
+                <a href="{% url 'sr1' %}">SR1</a>
+                <a href="{% url 'sr2' %}">SR2</a>
                 <a href="{% url 'equipe' %}">Equipe</a>
             </nav>
         </div>
