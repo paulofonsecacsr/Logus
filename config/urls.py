@@ -16,15 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from sobre.views import home
-from equipe.views import lista_equipe
-from sr1.views import servico1
-from sr2.views import servico2
+from sobre.views import sobre
+from equipe.views import equipe
+from sr1.views import sr1
+from sr2.views import sr2
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='home'),
-    path('equipe/', lista_equipe, name='equipe'),
-    path('servicos/sr1/', servico1, name='sr1'),
-    path('servicos/sr2/', servico2, name='sr2'),
+    path('', sobre, name='sobre'),
+    path('equipe/', equipe, name='equipe'),
+    path('servicos/sr1/', sr1, name='sr1'),
+    path('servicos/sr2/', sr2, name='sr2'),
 ]
