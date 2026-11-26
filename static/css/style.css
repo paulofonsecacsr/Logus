@@ -1,57 +1,85 @@
 :root {
-    --azul-escuro: #0f2c4c;
-    --ciano: #00a8b5;
-    --laranja: #f37021;
-    --fundo: #f7f9fc;
-    --texto: #1e293b;
+    /* Paleta da marca */
+    --preto: #0B0F19;
+    --verde-escuro: #0F2A2A;
+    --creme: #F5F5DC;
+    --gelo: #D9FAF4;
+    --turquesa: #00BFA6;
+    --petroleo: #0B6D6E;
+
+    /* SF Pro nos dispositivos Apple; fontes parecidas nos demais */
+    --fonte: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter", "Segoe UI", sans-serif;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-body { background: var(--fundo); color: var(--texto); line-height: 1.6; }
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: var(--fonte); }
+
+body {
+    background: var(--creme);
+    color: var(--preto);
+    font-weight: 400;              /* Textos corridos: SF Pro Regular */
+    line-height: 1.6;
+}
+
 .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-.navbar { background: var(--azul-escuro); padding: 18px 0; }
+/* Títulos principais: SF Pro Black | Subtítulos: SF Pro Medium */
+h1 { font-weight: 900; }
+h2, h3 { font-weight: 500; }
+
+/* Dados, métricas e indicadores: SF Pro Semibold */
+.dado { font-weight: 600; }
+
+/* Botões e formulários: SF Pro Medium */
+button, input, select, textarea { font-family: inherit; font-weight: 500; }
+
+/* Navegação */
+.navbar { background: var(--verde-escuro); padding: 14px 0; }
 .nav-content { display: flex; justify-content: space-between; align-items: center; }
-.logo { color: #fff; font-size: 1.5rem; font-weight: 700; text-decoration: none; letter-spacing: 1px; }
-.logo span { color: var(--laranja); }
-nav a { color: #e2e8f0; text-decoration: none; margin-left: 24px; font-weight: 500; }
-nav a:hover { color: var(--ciano); }
+.logo { display: inline-flex; align-items: center; }
+.logo img { height: 40px; width: auto; display: block; }
+nav a {
+    color: var(--gelo);
+    text-decoration: none;
+    margin-left: 24px;
+    font-weight: 500;
+}
+nav a:hover { color: var(--turquesa); }
 
-.hero { background: linear-gradient(135deg, var(--azul-escuro), #164e63); color: #fff; padding: 90px 0; }
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, var(--preto), var(--verde-escuro) 60%, var(--petroleo));
+    color: var(--creme);
+    padding: 90px 0;
+}
 .hero h1 { font-size: 2.6rem; max-width: 700px; margin-bottom: 16px; }
-.hero p { font-size: 1.15rem; max-width: 600px; margin-bottom: 30px; color: #cbd5e1; }
+.hero p { font-size: 1.15rem; max-width: 600px; margin-bottom: 30px; color: var(--gelo); }
 
+/* Botão */
 .btn-cta {
     display: inline-block;
-    background: var(--laranja);
-    color: #fff;
+    background: var(--turquesa);
+    color: var(--preto);           /* texto escuro: contraste melhor que branco no turquesa */
     padding: 14px 28px;
     border-radius: 6px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
 }
-.btn-cta:hover { opacity: 0.9; }
+.btn-cta:hover { background: var(--petroleo); color: var(--creme); }
 
-.footer { text-align: center; padding: 30px 0; color: #64748b; font-size: 0.9rem; margin-top: 60px; }
+.footer { text-align: center; padding: 30px 0; color: var(--petroleo); font-size: 0.9rem; margin-top: 60px; }
 
-/* Efeito de entrada ao abrir e ao trocar de seção */
+/* Efeito de entrada e saída */
 @keyframes entrada {
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
 }
-
-main {
-    animation: entrada 0.6s ease-out backwards;
-}
-
-/* Efeito de saída (ativado pelo script abaixo) */
+main { animation: entrada 0.6s ease-out backwards; }
 body.saindo main {
     opacity: 0;
     transform: translateY(-16px);
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
-/* Respeita quem desativa animações no sistema */
 @media (prefers-reduced-motion: reduce) {
     main { animation: none; }
     body.saindo main { transition: none; }
