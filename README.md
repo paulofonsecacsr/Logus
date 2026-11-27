@@ -6,7 +6,7 @@ _Logus_ é uma empresa fictícia de consultoria, criada por estudantes de Ciênc
 Nosso papel é alavancar a sua empresa, criando estratégias baseadas em dados para potencializar seu alcance e retenção de clientes.
 
 ## Equipe
-Desenvolvedores
+**Desenvolvedores**
 * Arthur Andrade
 * Lucas Silva
 * Mariana Melo
@@ -14,7 +14,7 @@ Desenvolvedores
 * Paulo Fonseca
 * Ricardo Bayma
 
-Designers
+**Designers**
 * Manuela Fontenelle
 * Maria Catharina Gadelha
 * Maria Eduarda
