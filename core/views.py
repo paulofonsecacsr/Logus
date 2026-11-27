@@ -4,14 +4,6 @@ from django.shortcuts import render
 
 from django.shortcuts import render
 
-def sobre(request):
-    return render(request, 'core/sobre.html')
-
-def equipe(request):
-    return render(request, 'core/equipe.html')
-
-def sr1(request):
-    return render(request, 'core/sr1.html')
-
-def sr2(request):
-    return render(request, 'core/sr2.html')
+# As quatro páginas atuais são estáticas (sem dados de banco), então usam
+# TemplateView direto em core/urls.py. Crie uma view aqui só quando uma
+# página precisar de lógica própria (formulário, consulta ao banco, etc.).

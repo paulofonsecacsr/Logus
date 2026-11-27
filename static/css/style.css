@@ -156,3 +156,5 @@ body.saindo main {
     main { animation: none; }
     body.saindo main { transition: none; }
 }
+/* Espaçamento padrão de seções internas (sem CSS inline no HTML) */
+.secao { padding: 60px 20px; }
